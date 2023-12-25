@@ -3,14 +3,15 @@ const dotenv = require('dotenv');
 
 dotenv.config({ path: './config.env' });
 
-const sequelize = new Sequelize(
+const db = new Sequelize(
   process.env.DATABASE_NAME,
   process.env.DATABASE_USERNAME,
   process.env.DATABASE_PASSWORD,
   {
     host: 'localhost',
     dialect: 'mysql',
+    logging: false,
   }
 );
 
-module.exports = sequelize;
+module.exports = db;
